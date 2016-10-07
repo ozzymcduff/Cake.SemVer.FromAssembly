@@ -31,8 +31,8 @@ namespace Cake.SemVer.FromAssembly
         [CakeMethodAlias]
         public static string Magnitude(this ICakeContext context, FilePath original, FilePath @new)
         {
-            var runner = new SemVerRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
-            return runner.Magnitude(original, @new);
+            var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
+            return runner.Magnitude(original, @new, new SemVerMagnitudeSettings());
         }
     }
 }

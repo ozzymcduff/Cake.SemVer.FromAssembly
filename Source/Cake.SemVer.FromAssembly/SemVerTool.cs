@@ -43,10 +43,13 @@ namespace Cake.SemVer.FromAssembly
         /// <typeparam name="TBuilder">The Gem argument builder.</typeparam>
         /// <param name="settings">The settings.</param>
         /// <param name="builder">The builder.</param>
-        protected void RunTool<TBuilder>(TSettings settings, TBuilder builder)
+        protected string RunTool<TBuilder>(TSettings settings, TBuilder builder)
             where TBuilder : SemVerArgumentBuilder<TSettings>
         {
-            Run(settings, builder.GetArguments());
+            var process= RunProcess(settings, builder.GetArguments());
+            process.WaitForExit();
+            return string.Join(Environment.NewLine, 
+                               process.GetStandardOutput());
         }
     }
 }
