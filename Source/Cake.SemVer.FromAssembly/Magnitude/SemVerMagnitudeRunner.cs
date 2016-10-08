@@ -15,9 +15,9 @@ namespace Cake.SemVer.FromAssembly
             _environment = environment;
 		}
 
-        public string Magnitude(FilePath original, FilePath @new, SemVerMagnitudeSettings settings)
+        public Magnitude Magnitude(FilePath original, FilePath @new, SemVerMagnitudeSettings settings)
         {
-            return RunTool(settings, new SemVerMagnitudeArgumentBuilder(_environment, original, @new, settings));
+            return (Magnitude)Enum.Parse(typeof(Magnitude), RunTool(settings, new SemVerMagnitudeArgumentBuilder(_environment, original, @new, settings)));
         }
    }
 }

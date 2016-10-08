@@ -21,18 +21,35 @@ namespace Cake.SemVer.FromAssembly
         /// Builds the gem using the path to the gemspec file.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="original"></param>
-        /// <param name="new"></param>
+        /// <param name="original">the previously published dll</param>
+        /// <param name="new">the dll to be published</param>
         /// <example>
         /// <code>
         /// Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static string Magnitude(this ICakeContext context, FilePath original, FilePath @new)
+        public static Magnitude Magnitude(this ICakeContext context, FilePath original, FilePath @new)
+        {
+            return Magnitude(context, original, @new, null);
+        }
+        /// <summary>
+        /// Builds the gem using the path to the gemspec file.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <param name="original">the previously published dll</param>
+        /// <param name="new">the dll to be published</param>
+        /// <param name="output">send output to a file</param>
+        /// <example>
+        /// <code>
+        /// Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll", "output.txt");
+        /// </code>
+        /// </example>
+        [CakeMethodAlias]
+        public static Magnitude Magnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
         {
             var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
-            return runner.Magnitude(original, @new, new SemVerMagnitudeSettings());
+            return runner.Magnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
         }
     }
 }

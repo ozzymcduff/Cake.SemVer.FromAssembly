@@ -49,6 +49,12 @@ namespace Cake.SemVer.FromAssembly
 
         void AddCommonArguments()
         {
+            if (_settings.Output != null) 
+            {
+                _builder.Append("--output");
+
+                _builder.AppendQuoted(_settings.Output.MakeAbsolute(_environment).FullPath);
+            }
         }
    }
 }

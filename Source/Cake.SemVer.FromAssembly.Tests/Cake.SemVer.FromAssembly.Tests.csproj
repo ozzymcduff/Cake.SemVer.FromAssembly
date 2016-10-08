@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Cake.SemVer.FromAssembly.Tests</RootNamespace>
     <AssemblyName>Cake.SemVer.FromAssembly.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,9 +28,44 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="xunit.abstractions">
+      <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.assert">
+      <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core">
+      <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop">
+      <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Cake.Core">
+      <HintPath>..\packages\Cake.Core.0.15.2\lib\net45\Cake.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cake.Testing">
+      <HintPath>..\packages\Cake.Testing.0.15.2\lib\net45\Cake.Testing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SemVerMagnitudeRunnerTests.cs" />
+    <Compile Include="Fixtures\SemVerMagnitudeRunnerFixture.cs" />
+    <Compile Include="Fixtures\SemVerFixture.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Fixtures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cake.SemVer.FromAssembly\Cake.SemVer.FromAssembly.csproj">
+      <Project>{30A715EC-CE9E-41A6-9329-251547895980}</Project>
+      <Name>Cake.SemVer.FromAssembly</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
