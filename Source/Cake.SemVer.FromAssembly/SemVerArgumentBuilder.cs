@@ -8,7 +8,7 @@ namespace Cake.SemVer.FromAssembly
     /// The top level argument builder for the SemVer.FromAssembly CLI Tool
     /// </summary>
     /// <typeparam name="T">The Settings type to build arguments from</typeparam>
-    public abstract class SemVerArgumentBuilder<T>
+    internal abstract class SemVerArgumentBuilder<T>
         where T : SemVerSettings
     {
         private readonly ICakeEnvironment _environment;

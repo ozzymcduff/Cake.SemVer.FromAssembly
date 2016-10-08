@@ -7,7 +7,7 @@ using Cake.Core.Tooling;
 
 namespace Cake.SemVer.FromAssembly
 {
-    public class SemVerTool<TSettings> : Tool<TSettings>
+    internal class SemVerTool<TSettings> : Tool<TSettings>
         where TSettings : SemVerSettings
     {
         public SemVerTool(
