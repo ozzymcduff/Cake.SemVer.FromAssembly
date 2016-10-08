@@ -59,7 +59,7 @@ namespace Cake.SemVer.FromAssembly
                 }
                 else
                 {
-                    throw new CakeException($"SemVer.FromAssembly: Process returned an error (exit code {process.GetExitCode()}).");
+                    throw new CakeException($"{GetToolName()}: Process returned an error (exit code {process.GetExitCode()}).");
                 }
             }
         }
