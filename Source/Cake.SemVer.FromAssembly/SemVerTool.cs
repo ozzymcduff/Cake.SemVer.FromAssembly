@@ -50,8 +50,8 @@ namespace Cake.SemVer.FromAssembly
             using (var process = RunProcess(settings, builder.GetArguments()))
             {
                 process.WaitForExit();
-                var output = process.GetStandardOutput().ToArray();
-                if (output.Any() || process.GetExitCode()!=0)
+                var output = process.GetStandardOutput();
+                if (output !=null && output.Any() && process.GetExitCode()==0)
                     return string.Join(Environment.NewLine,
                                    output);
                 else
