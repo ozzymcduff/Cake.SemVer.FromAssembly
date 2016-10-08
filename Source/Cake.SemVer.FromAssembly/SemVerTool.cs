@@ -39,7 +39,7 @@ namespace Cake.SemVer.FromAssembly
         }
 
         /// <summary>
-        /// Runs the Gem tool with the specified settings.
+        /// Runs the SemVer.FromAssembly tool with the specified settings.
         /// </summary>
         /// <typeparam name="TBuilder">The Gem argument builder.</typeparam>
         /// <param name="settings">The settings.</param>

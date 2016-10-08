@@ -5,12 +5,12 @@ using Cake.Core.IO;
 namespace Cake.SemVer.FromAssembly
 {
     /// <summary>
-    /// <para>Contains functionality related to the <see href="https://rubygems.org/pages/download">RubyGems Package Manager</see>.</para>
+    /// <para>Contains functionality related to the <see href="https://github.com/wallymathieu/SemVer.FromAssembly">SemVer.FromAssembly</see>.</para>
     /// <para>
-    /// In order to use the commands for this addin, the gem utility will need to be installed and available, or you will need to provide a ToolPath to where it can be located, and also you will need to include the following in your build.cake file to download and
+    /// In order to use the commands for this addin, the SemVer.FromAssembly utility will need to be installed and available, or you will need to provide a ToolPath to where it can be located, and also you will need to include the following in your build.cake file to download and
     /// reference the addin from NuGet.org:
     /// <code>
-    /// #addin Cake.Gem
+    /// #addin Cake.SemVer.FromAssembly
     /// </code>
     /// </para>
     /// </summary>
@@ -18,7 +18,7 @@ namespace Cake.SemVer.FromAssembly
     public static class SemVerAliases
     {
         /// <summary>
-        /// Builds the gem using the path to the gemspec file.
+        /// Get the magnitude by running SemVer.FromAssembly.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="original">the previously published dll</param>
@@ -34,7 +34,7 @@ namespace Cake.SemVer.FromAssembly
             return Magnitude(context, original, @new, null);
         }
         /// <summary>
-        /// Builds the gem using the path to the gemspec file.
+        /// Get the magnitude by running SemVer.FromAssembly.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="original">the previously published dll</param>
