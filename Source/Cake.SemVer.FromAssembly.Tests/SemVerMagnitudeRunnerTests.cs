@@ -66,7 +66,7 @@ namespace Cake.SemVer.FromAssembly.Tests
 
             // Then
             Assert.IsType<CakeException>(result);
-            Assert.Equal("Gem: Process was not started.", result.Message);
+            Assert.Equal("SemVer.FromAssembly: Process was not started.", result.Message);
         }
 
         [Fact]
@@ -85,7 +85,7 @@ namespace Cake.SemVer.FromAssembly.Tests
         }
 
         [Fact]
-        public void Should_Find_Gem_Executable_If_Tool_Path_Not_Provided()
+        public void Should_Find_Executable_If_Tool_Path_Not_Provided()
         {
             // Given
             var fixture = new SemVerMagnitudeRunnerFixture();
