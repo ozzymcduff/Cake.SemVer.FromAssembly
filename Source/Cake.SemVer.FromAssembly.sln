@@ -5,6 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SemVer.FromAssembly", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SemVer.FromAssembly.Tests", "Cake.SemVer.FromAssembly.Tests\Cake.SemVer.FromAssembly.Tests.csproj", "{3836F842-FD49-4A50-9748-B8A8BE48CCD2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6470AD29-5C0B-4EC5-BF19-3C9B5E132CD2}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

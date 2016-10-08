@@ -183,9 +183,6 @@ if (!(Test-Path $CAKE_EXE)) {
     Throw "Could not find Cake.exe at $CAKE_EXE"
 }
 
-# Make sure that re-usable build.cake file exists.
-Invoke-Expression "&`"$NUGET_EXE`" install gep13.DefaultBuild -ExcludeVersion -PreRelease -OutputDirectory `"$TOOLS_DIR`" -Source `"https://www.myget.org/F/gep13/api/v3/index.json`""
-
 # Start Cake
 Write-Host "Running build script..."
 Invoke-Expression "& `"$CAKE_EXE`" `"$Script`" -target=`"$Target`" -configuration=`"$Configuration`" -verbosity=`"$Verbosity`" $UseMono $UseDryRun $UseExperimental $ScriptArgs"
