@@ -28,7 +28,6 @@ var appVeyorProjectSlug       = "cake-semver-from-assembly";
 #l .\Tools\gep13.DefaultBuild\Content\chocolatey.cake
 #l .\Tools\gep13.DefaultBuild\Content\nuget.cake
 #l .\Tools\gep13.DefaultBuild\Content\packages.cake
-#l .\Tools\gep13.DefaultBuild\Content\parameters.cake
 #l .\Tools\gep13.DefaultBuild\Content\paths.cake
 #l .\Tools\gep13.DefaultBuild\Content\testing.cake
 #l .\Tools\gep13.DefaultBuild\Content\build.cake
