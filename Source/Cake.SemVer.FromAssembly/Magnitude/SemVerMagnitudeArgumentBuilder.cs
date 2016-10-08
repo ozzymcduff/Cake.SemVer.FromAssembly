@@ -15,7 +15,9 @@ namespace Cake.SemVer.FromAssembly
             :base(environment,settings)
         {
             _environment = environment;
+            if (original == null) throw new ArgumentNullException(nameof(original)); 
             _original = original;
+            if (@new == null) throw new ArgumentNullException(nameof(@new));
             _new = @new;
         }
         protected override void AddArguments(ProcessArgumentBuilder builder, SemVerMagnitudeSettings settings)
