@@ -5,19 +5,25 @@ using Cake.Core.Tooling;
 
 namespace Cake.SemVer.FromAssembly
 {
-	internal class SemVerMagnitudeRunner: SemVerTool<SemVerMagnitudeSettings>
-	{
+    internal class SemVerMagnitudeRunner : SemVerTool<SemVerMagnitudeSettings>
+    {
         private readonly ICakeEnvironment _environment;
 
-		public SemVerMagnitudeRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator tools)
-            :base(fileSystem,environment,processRunner,tools)
-		{
+        public SemVerMagnitudeRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner, IToolLocator tools)
+            : base(fileSystem, environment, processRunner, tools)
+        {
             _environment = environment;
-		}
+        }
 
         public Magnitude Magnitude(FilePath original, FilePath @new, SemVerMagnitudeSettings settings)
         {
-            return (Magnitude)Enum.Parse(typeof(Magnitude), RunTool(settings, new SemVerMagnitudeArgumentBuilder(_environment, original, @new, settings)));
+            var res = RunTool(settings, new SemVerMagnitudeArgumentBuilder(_environment, original, @new, settings));
+            Magnitude magnitude;
+            if (Enum.TryParse(res, out magnitude))
+            {
+                return magnitude;
+            }
+            return FromAssembly.Magnitude.None;
         }
-   }
+    }
 }

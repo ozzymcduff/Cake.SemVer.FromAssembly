@@ -47,15 +47,20 @@ namespace Cake.SemVer.FromAssembly
         protected string RunTool<TBuilder>(TSettings settings, TBuilder builder)
             where TBuilder : SemVerArgumentBuilder<TSettings>
         {
+            if (settings == null) throw new ArgumentNullException(nameof(settings));
             using (var process = RunProcess(settings, builder.GetArguments()))
             {
                 process.WaitForExit();
                 var output = process.GetStandardOutput();
-                if (output !=null && output.Any() && process.GetExitCode()==0)
+                if (process.GetExitCode() == 0)
+                {
                     return string.Join(Environment.NewLine,
-                                   output);
+                                   output??new string[0]);
+                }
                 else
-                    throw new Exception($"Failed with exit code {process.GetExitCode()}");
+                {
+                    throw new CakeException($"SemVer.FromAssembly: Process returned an error (exit code {process.GetExitCode()}).");
+                }
             }
         }
     }

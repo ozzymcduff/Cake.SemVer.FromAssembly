@@ -3,8 +3,12 @@ namespace Cake.SemVer.FromAssembly
 {
     public enum Magnitude
     {
-        Patch = 0,
-        Minor = 1,
-        Major = 2
+        /// <summary>
+        /// Could be due to an error.
+        /// </summary>
+        None=0,
+        Patch = 1,
+        Minor = 2,
+        Major = 3
     }
 }
