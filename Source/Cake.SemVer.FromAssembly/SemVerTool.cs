@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -46,10 +47,16 @@ namespace Cake.SemVer.FromAssembly
         protected string RunTool<TBuilder>(TSettings settings, TBuilder builder)
             where TBuilder : SemVerArgumentBuilder<TSettings>
         {
-            var process= RunProcess(settings, builder.GetArguments());
-            process.WaitForExit();
-            return string.Join(Environment.NewLine, 
-                               process.GetStandardOutput());
+            using (var process = RunProcess(settings, builder.GetArguments()))
+            {
+                process.WaitForExit();
+                var output = process.GetStandardOutput().ToArray();
+                if (output.Any() || process.GetExitCode()!=0)
+                    return string.Join(Environment.NewLine,
+                                   output);
+                else
+                    throw new Exception($"Failed with exit code {process.GetExitCode()}");
+            }
         }
     }
 }
