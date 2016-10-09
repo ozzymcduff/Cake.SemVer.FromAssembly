@@ -43,6 +43,36 @@ Task("Run-xUnit-Tests")
     });
 });
 
+
+Task("Package")
+    .IsDependentOn("Build")
+    .Does(() =>
+{
+    var nuGetPackSettings   = new NuGetPackSettings {
+        Id                      = "Cake.SemVer.FromAssembly",
+        Version                 = "0.0.1",
+        Title                   = "Cake addin to use SemVer.FromAssembly",
+        Authors                 = new[] {"Oskar Gewalli"},
+        Owners                  = new[] {"Oskar Gewalli"},
+        Description             = "Cake addin in order to be able to get next semver version of nuget package based on changes to the public API",
+        ProjectUrl              = new Uri("https://github.com/wallymathieu/Cake.SemVer.FromAssembly"),
+        LicenseUrl              = new Uri("https://raw.githubusercontent.com/wallymathieu/Cake.SemVer.FromAssembly/master/LICENSE"),
+        Copyright               = "wallymathieu 2016",
+        ReleaseNotes            = new [] {},
+        Tags                    = new [] {"semver", "Cake"},
+        RequireLicenseAcceptance= false,
+        Symbols                 = true,
+        NoPackageAnalysis       = true,
+        Files                   = new [] {
+            new NuSpecContent {Source = "Cake.SemVer.FromAssembly.dll", Target = "bin"},
+        },
+        BasePath                = "./Source/Cake.SemVer.FromAssembly/bin/" + configuration,
+        OutputDirectory         = "./BuildArtifacts/nuget"
+    };
+
+    NuGetPack(nuGetPackSettings);
+});
+
 Task("Default")
   .IsDependentOn("Run-xUnit-Tests");
 
