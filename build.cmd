@@ -3,7 +3,7 @@
 set filename=%~d0%~p0%~n0.ps1
 
 if exist "%filename%" (
-  PowerShell.exe -NoProfile -NonInteractive -File "%filename%"
+  PowerShell.exe -NoProfile -NonInteractive -File "%filename%" %*
  
   :: Collect the exit code from the PowerShell script.
   set err=%errorlevel%

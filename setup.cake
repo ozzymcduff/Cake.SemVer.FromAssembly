@@ -28,7 +28,7 @@ Task("Build")
 Task("Clean")
     .Does(() =>
 {
-    CleanDirectories(new[] { "./BuildArtifacts/TestResults" });
+    CleanDirectories(new[] { "./BuildArtifacts/TestResults", "./BuildArtifacts/nuget" });
 });
 
 Task("Run-xUnit-Tests")
@@ -46,6 +46,7 @@ Task("Run-xUnit-Tests")
 
 Task("Package")
     .IsDependentOn("Build")
+    .IsDependentOn("Clean")
     .Does(() =>
 {
     var nuGetPackSettings   = new NuGetPackSettings {
@@ -58,13 +59,14 @@ Task("Package")
         ProjectUrl              = new Uri("https://github.com/wallymathieu/Cake.SemVer.FromAssembly"),
         LicenseUrl              = new Uri("https://raw.githubusercontent.com/wallymathieu/Cake.SemVer.FromAssembly/master/LICENSE"),
         Copyright               = "wallymathieu 2016",
-        ReleaseNotes            = new [] {},
+        ReleaseNotes            = new string[0],
         Tags                    = new [] {"semver", "Cake"},
         RequireLicenseAcceptance= false,
         Symbols                 = true,
         NoPackageAnalysis       = true,
         Files                   = new [] {
-            new NuSpecContent {Source = "Cake.SemVer.FromAssembly.dll", Target = "bin"},
+            new NuSpecContent {Source = "Cake.SemVer.FromAssembly.dll", Target = "/"},
+            new NuSpecContent {Source = "Cake.SemVer.FromAssembly.XML", Target = "/"},
         },
         BasePath                = "./Source/Cake.SemVer.FromAssembly/bin/" + configuration,
         OutputDirectory         = "./BuildArtifacts/nuget"
