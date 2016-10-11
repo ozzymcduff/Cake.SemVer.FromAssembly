@@ -25,13 +25,13 @@ namespace Cake.SemVer.FromAssembly
         /// <param name="new">the dll to be published</param>
         /// <example>
         /// <code>
-        /// Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
+        /// SemVerMagnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static Magnitude Magnitude(this ICakeContext context, FilePath original, FilePath @new)
+        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new)
         {
-            return Magnitude(context, original, @new, null);
+            return SemVerMagnitude(context, original, @new, null);
         }
         /// <summary>
         /// Get the magnitude by running SemVer.FromAssembly.
@@ -42,11 +42,11 @@ namespace Cake.SemVer.FromAssembly
         /// <param name="output">send output to a file</param>
         /// <example>
         /// <code>
-        /// Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll", "output.txt");
+        /// SemVerMagnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll", "output.txt");
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static Magnitude Magnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
+        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
         {
             var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
             return runner.Magnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
