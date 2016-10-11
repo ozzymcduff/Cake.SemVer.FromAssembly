@@ -51,7 +51,7 @@ Task("Package")
 {
     var nuGetPackSettings   = new NuGetPackSettings {
         Id                      = "Cake.SemVer.FromAssembly",
-        Version                 = "0.0.1",
+        Version                 = "0.0.2",
         Title                   = "Cake addin to use SemVer.FromAssembly",
         Authors                 = new[] {"Oskar Gewalli"},
         Owners                  = new[] {"Oskar Gewalli"},
