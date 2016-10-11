@@ -14,3 +14,9 @@ cache:
 - Source\packages -> Source\**\packages.config
 - Tools -> build.ps1
 
+#---------------------------------#
+#  Skip builds for doc changes    #
+#---------------------------------#
+skip_commits:
+  files:
+    - README.md
