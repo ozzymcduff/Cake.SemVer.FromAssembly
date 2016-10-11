@@ -12,7 +12,7 @@ Cake Addin that exends Cake with ability to execute the SemVer.FromAssembly tool
 Task("Build-Next")
     .Does(() =>
 {
-    var magnitude=Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
+    var magnitude=SemVerMagnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
     switch(magnitude){
     case Magnitude.Major:
      // update major version
