@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+
 namespace Cake.SemVer.FromAssembly
 {
+    [ComVisible(true)]
     public enum Magnitude
     {
         /// <summary>

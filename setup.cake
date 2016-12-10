@@ -51,7 +51,7 @@ Task("Package")
 {
     var nuGetPackSettings   = new NuGetPackSettings {
         Id                      = "Cake.SemVer.FromAssembly",
-        Version                 = "0.0.2",
+        Version                 = "0.0.3",
         Title                   = "Cake addin to use SemVer.FromAssembly",
         Authors                 = new[] {"Oskar Gewalli"},
         Owners                  = new[] {"Oskar Gewalli"},
@@ -59,7 +59,7 @@ Task("Package")
         ProjectUrl              = new Uri("https://github.com/wallymathieu/Cake.SemVer.FromAssembly"),
         LicenseUrl              = new Uri("https://raw.githubusercontent.com/wallymathieu/Cake.SemVer.FromAssembly/master/LICENSE"),
         Copyright               = "wallymathieu 2016",
-        ReleaseNotes            = new string[0],
+        ReleaseNotes            = new string[]{"Renamed parameter new to next"},
         Tags                    = new [] {"semver", "Cake"},
         RequireLicenseAcceptance= false,
         Symbols                 = true,
