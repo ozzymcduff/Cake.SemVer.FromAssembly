@@ -2,7 +2,7 @@
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
-namespace Cake.SemVer.FromAssembly
+namespace Cake.SemVer.FromBinary
 {
     /// <summary>
     /// <para>Contains functionality related to the <see href="https://github.com/wallymathieu/SemVer.FromAssembly">SemVer.FromAssembly</see>.</para>
@@ -49,7 +49,7 @@ namespace Cake.SemVer.FromAssembly
         public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
         {
             var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
-            return runner.Magnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
+            return runner.SemVerMagnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
         }
     }
 }

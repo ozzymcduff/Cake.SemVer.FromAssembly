@@ -50,8 +50,8 @@ Task("Package")
     .Does(() =>
 {
     var nuGetPackSettings   = new NuGetPackSettings {
-        Id                      = "Cake.SemVer.FromAssembly",
-        Version                 = "0.0.2",
+        Id                      = "Cake.SemVer.FromBinary",
+        Version                 = "0.0.3",
         Title                   = "Cake addin to use SemVer.FromAssembly",
         Authors                 = new[] {"Oskar Gewalli"},
         Owners                  = new[] {"Oskar Gewalli"},
@@ -65,8 +65,8 @@ Task("Package")
         Symbols                 = true,
         NoPackageAnalysis       = true,
         Files                   = new [] {
-            new NuSpecContent {Source = "Cake.SemVer.FromAssembly.dll", Target = "/"},
-            new NuSpecContent {Source = "Cake.SemVer.FromAssembly.XML", Target = "/"},
+            new NuSpecContent {Source = "Cake.SemVer.FromBinary.dll", Target = "/"},
+            new NuSpecContent {Source = "Cake.SemVer.FromBinary.XML", Target = "/"},
         },
         BasePath                = "./Source/Cake.SemVer.FromAssembly/bin/" + configuration,
         OutputDirectory         = "./BuildArtifacts/nuget"
