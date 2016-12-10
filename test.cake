@@ -1,5 +1,5 @@
-#r "./Source/Cake.SemVer.FromAssembly/bin/Debug/Cake.SemVer.FromAssembly.dll"
 var target = Argument("target", "Default");
+#addin nuget:?package=Cake.SemVer.FromBinary
 
 Task("Default")
     .Does(() =>
@@ -7,7 +7,7 @@ Task("Default")
     try
     {
         var file = "../packages/xunit.abstractions.2.0.0/lib/net35/xunit.abstractions.dll";
-        var magnitude=SemVerMagnitude(file, file);
+        /*var magnitude=SemVerMagnitude(file, file);
         switch(magnitude){
         case Magnitude.Major:
             Console.WriteLine("Major");
@@ -18,7 +18,7 @@ Task("Default")
         case Magnitude.Patch:
             Console.WriteLine("Patch");
          // update patch version
-        }
+        }*/
 
     }
     catch(Exception ex)
