@@ -25,7 +25,7 @@ namespace Cake.SemVer.FromAssembly
         /// <param name="new">the dll to be published</param>
         /// <example>
         /// <code>
-        /// Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
+        /// SemVerMagnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
         /// </code>
         /// </example>
         [CakeMethodAlias]
@@ -42,7 +42,7 @@ namespace Cake.SemVer.FromAssembly
         /// <param name="output">send output to a file</param>
         /// <example>
         /// <code>
-        /// Magnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll", "output.txt");
+        /// SemVerMagnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll", "output.txt");
         /// </code>
         /// </example>
         [CakeMethodAlias]
