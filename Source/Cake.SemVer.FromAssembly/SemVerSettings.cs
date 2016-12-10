@@ -1,7 +1,7 @@
 ﻿using Cake.Core.IO;
 using Cake.Core.Tooling;
 
-namespace Cake.SemVer.FromAssembly
+namespace  Cake.SemVer.FromBinary
 {
     internal class SemVerSettings : ToolSettings
     {

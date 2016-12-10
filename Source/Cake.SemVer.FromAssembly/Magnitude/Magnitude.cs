@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Cake.SemVer.FromAssembly
+namespace  Cake.SemVer.FromBinary
 {
     public enum Magnitude
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using Cake.Core.IO;
 
-namespace Cake.SemVer.FromAssembly.Tests
+namespace  Cake.SemVer.FromBinary.Tests
 {
     internal class SemVerMagnitudeRunnerFixture: SemVerFixture<SemVerMagnitudeSettings>
 	{
@@ -17,7 +17,7 @@ namespace Cake.SemVer.FromAssembly.Tests
         protected override void RunTool()
         {
             var tool = new SemVerMagnitudeRunner(FileSystem, Environment, ProcessRunner, Tools);
-            tool.Magnitude(Original, New, Settings);
+            tool.SemVerMagnitude(Original, New, Settings);
         }
 	}
 }
