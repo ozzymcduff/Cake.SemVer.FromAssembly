@@ -254,3 +254,7 @@ paket-files/
 # Build related
 tools/
 BuildArtifacts/
+
+# Mac Os X 
+.DS_Store
+

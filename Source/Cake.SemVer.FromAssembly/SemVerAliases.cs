@@ -29,9 +29,9 @@ namespace Cake.SemVer.FromAssembly
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static Magnitude Magnitude(this ICakeContext context, FilePath original, FilePath @new)
+        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new)
         {
-            return Magnitude(context, original, @new, null);
+            return SemVerMagnitude(context, original, @new, null);
         }
         /// <summary>
         /// Get the magnitude by running SemVer.FromAssembly.
@@ -46,7 +46,7 @@ namespace Cake.SemVer.FromAssembly
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static Magnitude Magnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
+        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
         {
             var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
             return runner.Magnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
