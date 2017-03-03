@@ -1,11 +1,11 @@
-# Cake.SemVer.FromAssembly [![Build status](https://ci.appveyor.com/api/projects/status/8de3t84iae9utkcd/branch/master?svg=true)](https://ci.appveyor.com/project/wallymathieu/semver-fromassembly/branch/master)
+# Cake.SemVer.FromAssembly [![Build status](https://ci.appveyor.com/api/projects/status/7bge00kxk3m4x807/branch/master?svg=true)](https://ci.appveyor.com/project/wallymathieu/cake-semver-fromassembly/branch/master)
 
 Cake Addin that exends Cake with ability to execute the SemVer.FromAssembly tool
 
 ## Usage 
 
 ```
-#addin Cake.SemVer.FromAssembly
+#addin Cake.SemVer.FromBinary
 ```
 
 ```
