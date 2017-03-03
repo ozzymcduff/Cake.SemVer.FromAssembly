@@ -1,5 +1,7 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
@@ -21,7 +23,8 @@ using System.Runtime.CompilerServices;
 
 // The following attributes are used to specify the signing key for the assembly, 
 // if desired. See the Mono documentation for more information about signing.
-
+[assembly: CLSCompliant(true)]
+[assembly: ComVisible(false)]
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
 [assembly: InternalsVisibleTo("Cake.SemVer.FromAssembly.Tests")]

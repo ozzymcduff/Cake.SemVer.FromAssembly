@@ -4,6 +4,7 @@ using System.Linq;
 using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
+using System.Globalization;
 
 namespace  Cake.SemVer.FromBinary
 {
@@ -59,7 +60,8 @@ namespace  Cake.SemVer.FromBinary
                 }
                 else
                 {
-                    throw new CakeException($"{GetToolName()}: Process returned an error (exit code {process.GetExitCode()}).");
+                    throw new CakeException(string.Format(CultureInfo.InvariantCulture, 
+                        "{0}: Process returned an error (exit code {1}).", GetToolName(), process.GetExitCode()));
                 }
             }
         }

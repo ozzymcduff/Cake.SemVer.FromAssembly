@@ -1,6 +1,7 @@
 ﻿using System;
 namespace  Cake.SemVer.FromBinary
 {
+    [ComVisible(true)]
     public enum Magnitude
     {
         /// <summary>

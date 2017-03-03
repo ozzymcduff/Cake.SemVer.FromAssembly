@@ -2,6 +2,7 @@
 using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.IO;
+using System.Runtime.InteropServices;
 namespace Cake.SemVer.FromBinary
 {
     /// <summary>
@@ -15,6 +16,7 @@ namespace Cake.SemVer.FromBinary
     /// </para>
     /// </summary>
     [CakeAliasCategory("SemVer")]
+    [ComVisible(true)]
     public static class SemVerAliases
     {
         /// <summary>
@@ -22,23 +24,23 @@ namespace Cake.SemVer.FromBinary
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="original">the previously published dll</param>
-        /// <param name="new">the dll to be published</param>
+        /// <param name="next">the dll to be published</param>
         /// <example>
         /// <code>
         /// SemVerMagnitude("./packages/NAME/45/NAME.dll", "NAME/bin/Debug/NAME.dll");
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new)
+        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath next)
         {
-            return SemVerMagnitude(context, original, @new, null);
+            return SemVerMagnitude(context, original, next, null);
         }
         /// <summary>
         /// Get the magnitude by running SemVer.FromAssembly.
         /// </summary>
         /// <param name="context">The context.</param>
         /// <param name="original">the previously published dll</param>
-        /// <param name="new">the dll to be published</param>
+        /// <param name="next">the dll to be published</param>
         /// <param name="output">send output to a file</param>
         /// <example>
         /// <code>
@@ -46,7 +48,7 @@ namespace Cake.SemVer.FromBinary
         /// </code>
         /// </example>
         [CakeMethodAlias]
-        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath @new, FilePath output)
+        public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath next, FilePath output)
         {
             var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
             return runner.SemVerMagnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
