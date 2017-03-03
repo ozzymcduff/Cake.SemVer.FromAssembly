@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{30A715EC-CE9E-41A6-9329-251547895980}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Cake.SemVer.FromAssembly</RootNamespace>
-    <AssemblyName>Cake.SemVer.FromAssembly</AssemblyName>
+    <RootNamespace>Cake.SemVer.FromBinary</RootNamespace>
+    <AssemblyName>Cake.SemVer.FromBinary</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -27,7 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
-    <DocumentationFile>bin\Release\Cake.SemVer.FromAssembly.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Cake.SemVer.FromBinary.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cake.Common, Version=0.17.0.0, Culture=neutral, processorArchitecture=MSIL">

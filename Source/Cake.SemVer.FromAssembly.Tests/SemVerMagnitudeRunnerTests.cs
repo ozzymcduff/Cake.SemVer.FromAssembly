@@ -3,7 +3,7 @@ using Cake.Core;
 using Cake.Testing;
 using Xunit;
 
-namespace Cake.SemVer.FromAssembly.Tests
+namespace  Cake.SemVer.FromBinary.Tests
 {
     public class SemVerMagnitudeRunnerTests
     {

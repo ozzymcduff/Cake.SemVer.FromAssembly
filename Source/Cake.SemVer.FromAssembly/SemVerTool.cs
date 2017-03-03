@@ -6,7 +6,7 @@ using Cake.Core.IO;
 using Cake.Core.Tooling;
 using System.Globalization;
 
-namespace Cake.SemVer.FromAssembly
+namespace  Cake.SemVer.FromBinary
 {
     internal class SemVerTool<TSettings> : Tool<TSettings>
         where TSettings : SemVerSettings

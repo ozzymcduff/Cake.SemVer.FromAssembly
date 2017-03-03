@@ -3,7 +3,7 @@ using Cake.Core;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
 
-namespace Cake.SemVer.FromAssembly
+namespace  Cake.SemVer.FromBinary
 {
     internal class SemVerMagnitudeRunner : SemVerTool<SemVerMagnitudeSettings>
     {
@@ -15,7 +15,7 @@ namespace Cake.SemVer.FromAssembly
             _environment = environment;
         }
 
-        public Magnitude Magnitude(FilePath original, FilePath @new, SemVerMagnitudeSettings settings)
+        public Magnitude SemVerMagnitude(FilePath original, FilePath @new, SemVerMagnitudeSettings settings)
         {
             var res = RunTool(settings, new SemVerMagnitudeArgumentBuilder(_environment, original, @new, settings));
             Magnitude magnitude;
@@ -23,7 +23,7 @@ namespace Cake.SemVer.FromAssembly
             {
                 return magnitude;
             }
-            return FromAssembly.Magnitude.None;
+            return Magnitude.None;
         }
     }
 }
