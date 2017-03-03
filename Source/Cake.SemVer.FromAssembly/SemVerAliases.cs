@@ -51,7 +51,7 @@ namespace Cake.SemVer.FromBinary
         public static Magnitude SemVerMagnitude(this ICakeContext context, FilePath original, FilePath next, FilePath output)
         {
             var runner = new SemVerMagnitudeRunner(context.FileSystem, context.Environment, context.ProcessRunner, context.Tools);
-            return runner.SemVerMagnitude(original, @new, new SemVerMagnitudeSettings { Output = output });
+            return runner.SemVerMagnitude(original, next, new SemVerMagnitudeSettings { Output = output });
         }
     }
 }
