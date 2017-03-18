@@ -27,7 +27,7 @@ namespace  Cake.SemVer.FromBinary
         /// <returns>The name of the tool.</returns>
         protected sealed override string GetToolName()
         {
-            return "SemVer.FromAssembly";
+            return "SynVer";
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace  Cake.SemVer.FromBinary
         /// <returns>The tool executable name.</returns>
         protected sealed override IEnumerable<string> GetToolExecutableNames()
         {
-            return new[] { "SemVer.FromAssembly.exe" };
+            return new[] { "SynVer.exe" };
         }
 
         /// <summary>
@@ -49,7 +49,8 @@ namespace  Cake.SemVer.FromBinary
             where TBuilder : SemVerArgumentBuilder<TSettings>
         {
             if (settings == null) throw new ArgumentNullException(nameof(settings));
-            using (var process = RunProcess(settings, builder.GetArguments()))
+            var args = builder.GetArguments();
+            using (var process = RunProcess(settings, args))
             {
                 process.WaitForExit();
                 var output = process.GetStandardOutput();
@@ -61,7 +62,10 @@ namespace  Cake.SemVer.FromBinary
                 else
                 {
                     throw new CakeException(string.Format(CultureInfo.InvariantCulture, 
-                        "{0}: Process returned an error (exit code {1}).", GetToolName(), process.GetExitCode()));
+                        "{0}: Process returned an error (exit code {1}) with arguments {2}.", 
+                            GetToolName(), 
+                            process.GetExitCode(),
+                            String.Join(" ", args.Select(arg=>arg.RenderSafe()))));
                 }
             }
         }
