@@ -24,9 +24,9 @@ namespace  Cake.SemVer.FromBinary
         {
             builder.Append("--magnitude");
 
-            builder.AppendQuoted(_original.MakeAbsolute(_environment).FullPath);
+            builder.AppendQuoted( _original.MakeAbsolute(_environment).Normalize());
 
-            builder.AppendQuoted(_new.MakeAbsolute(_environment).FullPath);
+            builder.AppendQuoted(_new.MakeAbsolute(_environment).Normalize());
         }
     }
 }

@@ -7,7 +7,7 @@ namespace  Cake.SemVer.FromBinary.Tests
     internal abstract class SemVerFixture<TSettings>:ToolFixture<TSettings>
                       where TSettings : ToolSettings, new()
     {
-        protected SemVerFixture():base("SemVer.FromAssembly.exe")
+        protected SemVerFixture():base("SynVer.exe")
         {
         }
     }

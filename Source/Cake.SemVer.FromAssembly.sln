@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SemVer.FromAssembly", "Cake.SemVer.FromAssembly\Cake.SemVer.FromAssembly.csproj", "{30A715EC-CE9E-41A6-9329-251547895980}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SemVer.FromAssembly.Tests", "Cake.SemVer.FromAssembly.Tests\Cake.SemVer.FromAssembly.Tests.csproj", "{3836F842-FD49-4A50-9748-B8A8BE48CCD2}"
@@ -8,6 +9,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6470AD29-5C0B-4EC5-BF19-3C9B5E132CD2}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BD26431D-84E9-48AA-A63D-AB79B195506E}"
+	ProjectSection(SolutionItems) = preProject
+		..\setup.cake = ..\setup.cake
 	EndProjectSection
 EndProject
 Global
@@ -24,5 +30,8 @@ Global
 		{3836F842-FD49-4A50-9748-B8A8BE48CCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3836F842-FD49-4A50-9748-B8A8BE48CCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3836F842-FD49-4A50-9748-B8A8BE48CCD2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

@@ -34,12 +34,12 @@ namespace  Cake.SemVer.FromBinary.Tests
 
             // Then
             Assert.IsType<CakeException>(result);
-            Assert.Equal("SemVer.FromAssembly: Could not locate executable.", result.Message);
+            Assert.Equal("SynVer: Could not locate executable.", result.Message);
         }
 
         [Theory]
-        [InlineData("/bin/tools/SemVer.FromAssembly/SemVer.FromAssembly.exe", "/bin/tools/SemVer.FromAssembly/SemVer.FromAssembly.exe")]
-        [InlineData("./tools/SemVer.FromAssembly/SemVer.FromAssembly.exe", "/Working/tools/SemVer.FromAssembly/SemVer.FromAssembly.exe")]
+        [InlineData("/bin/tools/SynVer/SynVer.exe", "/bin/tools/SynVer/SynVer.exe")]
+        [InlineData("./tools/SynVer/SynVer.exe", "/Working/tools/SynVer/SynVer.exe")]
         public void Should_Use_Tfx_Executable_From_Tool_Path_If_Provided(string toolPath, string expected)
         {
             // Given
@@ -66,7 +66,7 @@ namespace  Cake.SemVer.FromBinary.Tests
 
             // Then
             Assert.IsType<CakeException>(result);
-            Assert.Equal("SemVer.FromAssembly: Process was not started.", result.Message);
+            Assert.Equal("SynVer: Process was not started.", result.Message);
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace  Cake.SemVer.FromBinary.Tests
 
             // Then
             Assert.IsType<CakeException>(result);
-            Assert.Equal("SemVer.FromAssembly: Process returned an error (exit code 1).", result.Message);
+            Assert.StartsWith(@"SynVer: Process returned an error (exit code 1)", result.Message);
         }
 
         [Fact]
@@ -94,7 +94,7 @@ namespace  Cake.SemVer.FromBinary.Tests
             var result = fixture.Run();
 
             // Then
-            Assert.Equal("/Working/tools/SemVer.FromAssembly.exe", result.Path.FullPath);
+            Assert.Equal("/Working/tools/SynVer.exe", result.Path.FullPath);
         }
 
         [Fact]
@@ -124,7 +124,7 @@ namespace  Cake.SemVer.FromBinary.Tests
             var result = fixture.Run();
 
             // Then
-            Assert.Equal("--magnitude \"c:/temp/original.dll\" \"c:/temp/new.dll\" --output \"c:/temp/test.output\"", result.Args);
+            Assert.Equal(@"--magnitude ""c:\temp\original.dll"" ""c:\temp\new.dll"" --output ""c:\temp\test.output""", result.Args);
         }
     }
 }

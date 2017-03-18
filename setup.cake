@@ -51,7 +51,7 @@ Task("Package")
 {
     var nuGetPackSettings   = new NuGetPackSettings {
         Id                      = "Cake.SemVer.FromBinary",
-        Version                 = "0.0.3",
+        Version                 = "0.0.4",
         Title                   = "Cake addin to use SemVer.FromAssembly",
         Authors                 = new[] {"Oskar Gewalli"},
         Owners                  = new[] {"Oskar Gewalli"},
@@ -59,7 +59,7 @@ Task("Package")
         ProjectUrl              = new Uri("https://github.com/wallymathieu/Cake.SemVer.FromAssembly"),
         LicenseUrl              = new Uri("https://raw.githubusercontent.com/wallymathieu/Cake.SemVer.FromAssembly/master/LICENSE"),
         Copyright               = "wallymathieu 2016",
-        ReleaseNotes            = new string[]{"Renamed parameter new to next"},
+        ReleaseNotes            = new string[]{"Should reference SemVer.FromAssembly"},
         Tags                    = new [] {"semver", "Cake"},
         RequireLicenseAcceptance= false,
         Symbols                 = true,
@@ -67,6 +67,10 @@ Task("Package")
         Files                   = new [] {
             new NuSpecContent {Source = "Cake.SemVer.FromBinary.dll", Target = "/"},
             new NuSpecContent {Source = "Cake.SemVer.FromBinary.XML", Target = "/"},
+        },
+        Dependencies            = new List<NuSpecDependency>
+        { 
+            new NuSpecDependency { Id= "SynVer", Version="0.0.6"} 
         },
         BasePath                = "./Source/Cake.SemVer.FromAssembly/bin/" + configuration,
         OutputDirectory         = "./BuildArtifacts/nuget"

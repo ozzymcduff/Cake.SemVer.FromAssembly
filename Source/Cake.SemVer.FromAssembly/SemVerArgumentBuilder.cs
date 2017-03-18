@@ -53,7 +53,7 @@ namespace  Cake.SemVer.FromBinary
             {
                 _builder.Append("--output");
 
-                _builder.AppendQuoted(_settings.Output.MakeAbsolute(_environment).FullPath);
+                _builder.AppendQuoted( _settings.Output.MakeAbsolute(_environment).Normalize());
             }
         }
    }
