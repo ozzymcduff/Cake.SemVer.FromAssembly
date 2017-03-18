@@ -2,6 +2,10 @@
 
 Cake Addin that exends Cake with ability to execute the SemVer.FromAssembly tool
 
+## Obsolete
+
+Consider using [Cake.SynVer](https://github.com/fsprojects/Cake.SynVer) instead.
+
 ## Usage 
 
 ```
