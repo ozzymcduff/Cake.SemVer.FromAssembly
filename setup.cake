@@ -68,7 +68,10 @@ Task("Package")
             new NuSpecContent {Source = "Cake.SemVer.FromBinary.dll", Target = "/"},
             new NuSpecContent {Source = "Cake.SemVer.FromBinary.XML", Target = "/"},
         },
-        Dependencies            = new List<NuSpecDependency>{ new NuSpecDependency { Id= "SynVer", Version="0.0.5"} },
+        Dependencies            = new List<NuSpecDependency>
+        { 
+            new NuSpecDependency { Id= "SynVer", Version="0.0.6"} 
+        },
         BasePath                = "./Source/Cake.SemVer.FromAssembly/bin/" + configuration,
         OutputDirectory         = "./BuildArtifacts/nuget"
     };
