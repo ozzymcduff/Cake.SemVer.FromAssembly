@@ -77,6 +77,9 @@ Task("Package")
     };
 
     NuGetPack(nuGetPackSettings);
+    nuGetPackSettings.Id = "Cake.SemVer.FromAssembly";
+    nuGetPackSettings.Version = "0.0.5";
+    NuGetPack(nuGetPackSettings);
 });
 
 Task("Default")
